@@ -1,0 +1,29 @@
+{
+  "name": "aws-lambda-execution-visualizer",
+  "version": "1.0.0",
+  "description": "Interactive visualization of AWS Lambda cold starts, warm starts, and concurrent executions",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "python3 -m http.server 8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/[username]/aws-lambda-execution-visualizer.git"
+  },
+  "keywords": [
+    "aws",
+    "lambda",
+    "serverless",
+    "cold-start",
+    "visualization",
+    "education",
+    "interactive"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/[username]/aws-lambda-execution-visualizer/issues"
+  },
+  "homepage": "https://[username].github.io/aws-lambda-execution-visualizer/"
+}

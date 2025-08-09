@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>AWS Lambda Execution Visualizer</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>AWS Lambda Execution Visualizer</h1>
+                <p>Interactive visualization of Lambda cold starts, warm starts, and concurrent executions</p>
+            </header>
+
+            <div class="controls">
+                <button onclick="simulateColdStart()" class="btn-cold">Simulate Cold Start</button>
+                <button onclick="simulateWarmStart()" class="btn-warm">Simulate Warm Start</button>
+                <button onclick="simulateConcurrentRequests()" class="btn-concurrent">Concurrent Requests</button>
+                <button onclick="simulateHighLoad()" class="btn-load">High Load Test</button>
+                <button onclick="resetSimulation()" class="btn-reset">Reset</button>
+            </div>
+
+            <div class="metrics-panel">
+                <div class="metric">
+                    <span class="metric-label">Active Containers:</span>
+                    <span class="metric-value" id="active-containers">0</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Total Requests:</span>
+                    <span class="metric-value" id="total-requests">0</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Cold Starts:</span>
+                    <span class="metric-value" id="cold-starts">0</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Avg Response Time:</span>
+                    <span class="metric-value" id="avg-response">0ms</span>
+                </div>
+            </div>
+
+            <div class="lambda-containers" id="lambda-containers">
+                <!-- Lambda containers will be dynamically created here -->
+            </div>
+
+            <div class="execution-log">
+                <h3>Execution Log</h3>
+                <div class="log-content" id="log-content">
+                    <div class="log-entry">Ready to simulate Lambda executions...</div>
+                </div>
+            </div>
+
+            <div class="info-panels">
+                <div class="info-card">
+                    <h3>Cold Start Process</h3>
+                    <div class="process-steps">
+                        <div class="step">1. Download code package</div>
+                        <div class="step">2. Start new container</div>
+                        <div class="step">3. Initialize runtime</div>
+                        <div class="step">4. Load function code</div>
+                        <div class="step">5. Execute handler</div>
+                    </div>
+                    <div class="timing">Typical time: 100-3000ms</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>Warm Start Process</h3>
+                    <div class="process-steps">
+                        <div class="step">1. Reuse existing container</div>
+                        <div class="step">2. Execute handler directly</div>
+                    </div>
+                    <div class="timing">Typical time: 1-100ms</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>Concurrency Behavior</h3>
+                    <div class="process-steps">
+                        <div class="step">• One container = One concurrent execution</div>
+                        <div class="step">• New requests trigger new containers</div>
+                        <div class="step">• Containers reused when available</div>
+                        <div class="step">• Auto-scaling based on demand</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-example">
+                <h3>Sample Lambda Function</h3>
+                <pre><code>exports.handler = async (event) => {
+    // This code runs after container initialization
+    console.log('Processing request:', event);
+    
+    // Your business logic here
+    const result = await processData(event.data);
+    
+    return {
+        statusCode: 200,
+        body: JSON.stringify({
+            message: 'Success',
+            result: result,
+            timestamp: new Date().toISOString()
+        })
+    };
+};</code></pre>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
