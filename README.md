@@ -13,33 +13,21 @@ An interactive web application that demonstrates how AWS Lambda functions execut
 
 ## Live Demo
 
-🚀 **[Try the live demo here](https://[username].github.io/aws-lambda-execution-visualizer/)**
+🚀 **[Try the live demo here](https://jghidalgo.github.io/aws-lambda-execution-visualizer/)**
 
 ## How to Run Locally
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/[username]/aws-lambda-execution-visualizer.git
+   git clone https://github.com/jghidalgo/aws-lambda-execution-visualizer.git
    cd aws-lambda-execution-visualizer
    ```
 
-2. Open `index.html` in your web browser, or serve it locally:
-   ```bash
-   # Using Python 3
-   python -m http.server 8000
+2. Open `index.html` in your web browser, or serve it locally
    
-   # Using Python 2
-   python -m SimpleHTTPServer 8000
-   
-   # Using Node.js (if you have http-server installed)
-   npx http-server
-   ```
-
-3. Navigate to `http://localhost:8000` in your browser
-
-4. Click the simulation buttons to see different Lambda execution scenarios
-5. Watch the visual containers and metrics update in real-time
-6. Check the execution log for detailed information
+3. Click the simulation buttons to see different Lambda execution scenarios
+4. Watch the visual containers and metrics update in real-time
+5. Check the execution log for detailed information
 
 ## What You'll Learn
 
@@ -111,15 +99,6 @@ exports.handler = async (event) => {
 
 Perfect for understanding AWS Lambda performance characteristics and optimization strategies!
 
-## Deployment
-
-This project is designed to be hosted on GitHub Pages:
-
-1. Fork or create a new repository on GitHub
-2. Upload all files to the repository
-3. Go to repository Settings → Pages
-4. Select "Deploy from a branch" and choose "main" branch
-5. Your site will be available at `https://[username].github.io/[repository-name]/`
 
 ## Contributing
 
